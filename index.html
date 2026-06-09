@@ -7,526 +7,94 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0d0d0d;
-    --bg2: #161616;
-    --bg3: #1e1e1e;
-    --surface: #222222;
-    --border: #2e2e2e;
-    --border2: #3a3a3a;
-    --text: #f0ede8;
-    --text2: #a09d98;
-    --text3: #666360;
-    --accent: #e8d5a3;
-    --accent2: #c4a96e;
-    --accent3: #8a7245;
-    --danger: #e87070;
-    --success: #7ec897;
-    --info: #7ab8e8;
-    --groove: #2a2a2a;
+    --bg: #0d0d0d; --bg2: #161616; --bg3: #1e1e1e; --surface: #222222;
+    --border: #2e2e2e; --border2: #3a3a3a; --text: #f0ede8; --text2: #a09d98;
+    --text3: #666360; --accent: #e8d5a3; --accent2: #c4a96e; --accent3: #8a7245;
+    --danger: #e87070; --success: #7ec897; --info: #7ab8e8; --groove: #2a2a2a;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: 'DM Mono', monospace;
-    background: var(--bg);
-    color: var(--text);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  /* VINYL RECORD decorative top */
-  .vinyl-header {
-    width: 100%;
-    background: var(--bg2);
-    border-bottom: 1px solid var(--border);
-    padding: 1.5rem 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .vinyl-label {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-  .record-icon {
-    width: 40px; height: 40px;
-    border-radius: 50%;
-    background: conic-gradient(
-      var(--border2) 0deg, var(--bg) 15deg, var(--border2) 30deg,
-      var(--bg) 45deg, var(--border2) 60deg, var(--bg) 75deg,
-      var(--border2) 90deg, var(--bg) 105deg, var(--border2) 120deg,
-      var(--bg) 135deg, var(--border2) 150deg, var(--bg) 165deg,
-      var(--border2) 180deg, var(--bg) 195deg, var(--border2) 210deg,
-      var(--bg) 225deg, var(--border2) 240deg, var(--bg) 255deg,
-      var(--border2) 270deg, var(--bg) 285deg, var(--border2) 300deg,
-      var(--bg) 315deg, var(--border2) 330deg, var(--bg) 345deg, var(--border2) 360deg
-    );
-    position: relative;
-    flex-shrink: 0;
-  }
-  .record-icon::after {
-    content: '';
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%,-50%);
-    width: 12px; height: 12px;
-    border-radius: 50%;
-    background: var(--accent);
-  }
-  .game-title {
-    font-family: 'Syne', sans-serif;
-    font-size: 1.6rem;
-    font-weight: 800;
-    letter-spacing: 0.05em;
-    color: var(--accent);
-  }
-  .game-subtitle {
-    font-size: 0.65rem;
-    color: var(--text3);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-top: 2px;
-  }
-  .header-right {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-  .lang-toggle {
-    display: flex;
-    gap: 0;
-    border: 1px solid var(--border2);
-    border-radius: 4px;
-    overflow: hidden;
-  }
-  .lang-btn {
-    background: transparent;
-    border: none;
-    color: var(--text3);
-    font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    padding: 0.35rem 0.6rem;
-    cursor: pointer;
-    letter-spacing: 0.08em;
-    transition: all 0.15s;
-  }
-  .lang-btn.active {
-    background: var(--accent3);
-    color: var(--accent);
-  }
-  .lives-display {
-    font-size: 0.75rem;
-    color: var(--text2);
-    letter-spacing: 0.05em;
-  }
-  .lives-display span {
-    color: var(--danger);
-  }
-
-  /* MAIN CONTAINER */
+  body { font-family: 'DM Mono', monospace; background: var(--bg); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
+  .vinyl-header { width: 100%; background: var(--bg2); border-bottom: 1px solid var(--border); padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between; }
+  .vinyl-label { display: flex; align-items: center; gap: 1rem; }
+  .record-icon { width: 40px; height: 40px; border-radius: 50%; background: conic-gradient(var(--border2) 0deg, var(--bg) 15deg, var(--border2) 30deg, var(--bg) 45deg, var(--border2) 60deg, var(--bg) 75deg, var(--border2) 90deg, var(--bg) 105deg, var(--border2) 120deg, var(--bg) 135deg, var(--border2) 150deg, var(--bg) 165deg, var(--border2) 180deg, var(--bg) 195deg, var(--border2) 210deg, var(--bg) 225deg, var(--border2) 240deg, var(--bg) 255deg, var(--border2) 270deg, var(--bg) 285deg, var(--border2) 300deg, var(--bg) 315deg, var(--border2) 330deg, var(--bg) 345deg, var(--border2) 360deg); position: relative; flex-shrink: 0; }
+  .record-icon::after { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 12px; height: 12px; border-radius: 50%; background: var(--accent); }
+  .game-title { font-family: 'Syne', sans-serif; font-size: 1.6rem; font-weight: 800; letter-spacing: 0.05em; color: var(--accent); }
+  .game-subtitle { font-size: 0.65rem; color: var(--text3); letter-spacing: 0.15em; text-transform: uppercase; margin-top: 2px; }
+  .header-right { display: flex; align-items: center; gap: 1rem; }
+  .lang-toggle { display: flex; border: 1px solid var(--border2); border-radius: 4px; overflow: hidden; }
+  .lang-btn { background: transparent; border: none; color: var(--text3); font-family: 'DM Mono', monospace; font-size: 0.7rem; padding: 0.35rem 0.6rem; cursor: pointer; letter-spacing: 0.08em; transition: all 0.15s; }
+  .lang-btn.active { background: var(--accent3); color: var(--accent); }
+  .lives-display { font-size: 0.75rem; color: var(--text3); }
+  .lives-display span { color: var(--danger); }
   .main { width: 100%; max-width: 680px; padding: 2rem 1.5rem; flex: 1; }
-
-  /* SCREENS */
   .screen { display: none; }
   .screen.active { display: block; }
-
-  /* HOME SCREEN */
-  .home-intro {
-    text-align: center;
-    padding: 2rem 0 2.5rem;
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 2rem;
-  }
-  .home-intro p {
-    font-size: 0.8rem;
-    color: var(--text2);
-    line-height: 1.7;
-    max-width: 480px;
-    margin: 0 auto;
-  }
-  .home-intro p em {
-    color: var(--accent);
-    font-style: normal;
-  }
-  .categories-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 0.75rem;
-    margin-bottom: 2rem;
-  }
-  .cat-card {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 1rem 1.1rem;
-    cursor: pointer;
-    transition: all 0.15s;
-    position: relative;
-    overflow: hidden;
-  }
-  .cat-card::before {
-    content: '';
-    position: absolute;
-    left: 0; top: 0; bottom: 0;
-    width: 3px;
-    background: var(--accent3);
-    transition: background 0.15s;
-  }
+  .home-intro { text-align: center; padding: 2rem 0 2.5rem; border-bottom: 1px solid var(--border); margin-bottom: 2rem; }
+  .home-intro p { font-size: 0.8rem; color: var(--text2); line-height: 1.7; max-width: 480px; margin: 0 auto; }
+  .home-intro p em { color: var(--accent); font-style: normal; }
+  .categories-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.75rem; margin-bottom: 2rem; }
+  .cat-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 6px; padding: 1rem 1.1rem; cursor: pointer; transition: all 0.15s; position: relative; overflow: hidden; }
+  .cat-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--accent3); transition: background 0.15s; }
   .cat-card:hover { border-color: var(--border2); background: var(--surface); }
   .cat-card:hover::before { background: var(--accent); }
   .cat-card.completed::before { background: var(--success); }
   .cat-card.completed { opacity: 0.6; }
-  .cat-name {
-    font-family: 'Syne', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 0.3rem;
-  }
-  .cat-desc {
-    font-size: 0.65rem;
-    color: var(--text3);
-    line-height: 1.5;
-  }
-  .cat-count {
-    position: absolute;
-    top: 0.6rem; right: 0.8rem;
-    font-size: 0.6rem;
-    color: var(--text3);
-    letter-spacing: 0.05em;
-  }
-  .cat-progress {
-    margin-top: 0.6rem;
-    height: 2px;
-    background: var(--border);
-    border-radius: 1px;
-    overflow: hidden;
-  }
-  .cat-progress-fill {
-    height: 100%;
-    background: var(--accent2);
-    border-radius: 1px;
-    transition: width 0.3s;
-  }
-
-  /* GAME SCREEN */
-  .game-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 1.5rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid var(--border);
-  }
-  .game-cat-name {
-    font-family: 'Syne', sans-serif;
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--accent);
-  }
-  .game-progress-text {
-    font-size: 0.7rem;
-    color: var(--text3);
-    letter-spacing: 0.08em;
-  }
-  .game-progress-bar {
-    width: 100%;
-    height: 2px;
-    background: var(--border);
-    margin-bottom: 2rem;
-    border-radius: 1px;
-  }
-  .game-progress-fill {
-    height: 100%;
-    background: var(--accent2);
-    border-radius: 1px;
-    transition: width 0.4s;
-  }
-
-  /* SIDE INDICATOR */
-  .side-tag {
-    display: inline-block;
-    font-size: 0.6rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 0.25rem 0.6rem;
-    border: 1px solid var(--border2);
-    border-radius: 3px;
-    color: var(--text3);
-    margin-bottom: 1rem;
-  }
+  .cat-name { font-family: 'Syne', sans-serif; font-size: 0.85rem; font-weight: 600; color: var(--text); margin-bottom: 0.3rem; }
+  .cat-desc { font-size: 0.65rem; color: var(--text3); line-height: 1.5; }
+  .cat-count { position: absolute; top: 0.6rem; right: 0.8rem; font-size: 0.6rem; color: var(--text3); }
+  .cat-progress { margin-top: 0.6rem; height: 2px; background: var(--border); border-radius: 1px; overflow: hidden; }
+  .cat-progress-fill { height: 100%; background: var(--accent2); border-radius: 1px; transition: width 0.3s; }
+  .game-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border); }
+  .game-cat-name { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; color: var(--accent); }
+  .game-progress-text { font-size: 0.7rem; color: var(--text3); letter-spacing: 0.08em; }
+  .game-progress-bar { width: 100%; height: 2px; background: var(--border); margin-bottom: 2rem; border-radius: 1px; }
+  .game-progress-fill { height: 100%; background: var(--accent2); border-radius: 1px; transition: width 0.4s; }
+  .side-tag { display: inline-block; font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.25rem 0.6rem; border: 1px solid var(--border2); border-radius: 3px; color: var(--text3); margin-bottom: 1rem; }
   .side-tag.a { border-color: var(--accent3); color: var(--accent2); }
-
-  /* PROMPT CARD */
-  .prompt-card {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 1.5rem 2rem;
-    margin-bottom: 1.5rem;
-    text-align: center;
-    min-height: 100px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-  }
-  .prompt-hint {
-    font-size: 0.65rem;
-    color: var(--text3);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-  .prompt-text {
-    font-family: 'Syne', sans-serif;
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--text);
-    line-height: 1.2;
-  }
-  .prompt-context {
-    font-size: 0.7rem;
-    color: var(--text2);
-    font-style: italic;
-  }
-
-  /* ANSWER AREA */
-  .answer-row {
-    display: flex;
-    gap: 0.75rem;
-    margin-bottom: 1rem;
-  }
-  .answer-input {
-    flex: 1;
-    background: var(--bg2);
-    border: 1px solid var(--border2);
-    border-radius: 5px;
-    color: var(--text);
-    font-family: 'DM Mono', monospace;
-    font-size: 0.9rem;
-    padding: 0.7rem 1rem;
-    outline: none;
-    transition: border-color 0.15s;
-  }
+  .prompt-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem 2rem; margin-bottom: 1.5rem; text-align: center; min-height: 100px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; }
+  .prompt-hint { font-size: 0.65rem; color: var(--text3); letter-spacing: 0.1em; text-transform: uppercase; }
+  .prompt-text { font-family: 'Syne', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--text); line-height: 1.2; }
+  .prompt-context { font-size: 0.7rem; color: var(--text2); font-style: italic; }
+  .answer-row { display: flex; gap: 0.75rem; margin-bottom: 1rem; }
+  .answer-input { flex: 1; background: var(--bg2); border: 1px solid var(--border2); border-radius: 5px; color: var(--text); font-family: 'DM Mono', monospace; font-size: 0.9rem; padding: 0.7rem 1rem; outline: none; transition: border-color 0.15s; }
   .answer-input:focus { border-color: var(--accent3); }
   .answer-input.correct { border-color: var(--success); background: #0d1f11; }
   .answer-input.wrong { border-color: var(--danger); background: #1f0d0d; }
-  .submit-btn {
-    background: var(--accent3);
-    border: none;
-    border-radius: 5px;
-    color: var(--accent);
-    font-family: 'Syne', sans-serif;
-    font-weight: 600;
-    font-size: 0.8rem;
-    letter-spacing: 0.08em;
-    padding: 0 1.2rem;
-    cursor: pointer;
-    transition: all 0.15s;
-  }
+  .submit-btn { background: var(--accent3); border: none; border-radius: 5px; color: var(--accent); font-family: 'Syne', sans-serif; font-weight: 600; font-size: 0.8rem; letter-spacing: 0.08em; padding: 0 1.2rem; cursor: pointer; transition: all 0.15s; }
   .submit-btn:hover { background: var(--accent2); color: var(--bg); }
-
-  /* FEEDBACK */
-  .feedback-row {
-    min-height: 1.5rem;
-    font-size: 0.75rem;
-    text-align: center;
-    letter-spacing: 0.05em;
-    margin-bottom: 1rem;
-    transition: all 0.2s;
-  }
+  .feedback-row { min-height: 1.5rem; font-size: 0.75rem; text-align: center; letter-spacing: 0.05em; margin-bottom: 1rem; transition: all 0.2s; }
   .feedback-row.correct { color: var(--success); }
   .feedback-row.wrong { color: var(--danger); }
-
-  /* ACTION BUTTONS */
-  .action-row {
-    display: flex;
-    gap: 0.75rem;
-    justify-content: center;
-    margin-top: 0.5rem;
-  }
-  .action-btn {
-    background: transparent;
-    border: 1px solid var(--border2);
-    border-radius: 4px;
-    color: var(--text2);
-    font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.08em;
-    padding: 0.4rem 0.9rem;
-    cursor: pointer;
-    transition: all 0.15s;
-  }
+  .feedback-row.hint { color: var(--info); }
+  .action-row { display: flex; gap: 0.75rem; justify-content: center; margin-top: 0.5rem; }
+  .action-btn { background: transparent; border: 1px solid var(--border2); border-radius: 4px; color: var(--text2); font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.08em; padding: 0.4rem 0.9rem; cursor: pointer; transition: all 0.15s; }
   .action-btn:hover { border-color: var(--accent3); color: var(--accent); }
-  .action-btn.primary {
-    border-color: var(--accent3);
-    color: var(--accent2);
-  }
+  .action-btn.primary { border-color: var(--accent3); color: var(--accent2); }
   .action-btn.primary:hover { background: var(--accent3); color: var(--bg); }
-
-  /* GROOVE DIVIDER */
+  .action-btn.brag { border-color: var(--success); color: var(--success); }
+  .action-btn.brag:hover { background: var(--success); color: var(--bg); }
   .groove { width: 100%; height: 1px; background: var(--groove); margin: 1.5rem 0; }
-
-  /* VICTORY SCREEN */
-  .victory-center {
-    text-align: center;
-    padding: 3rem 1rem;
-  }
-  .victory-record {
-    width: 80px; height: 80px;
-    border-radius: 50%;
-    background: conic-gradient(
-      var(--border2) 0deg, var(--bg) 10deg, var(--border2) 20deg,
-      var(--bg) 30deg, var(--border2) 40deg, var(--bg) 50deg,
-      var(--border2) 60deg, var(--bg) 70deg, var(--border2) 80deg,
-      var(--bg) 90deg, var(--border2) 100deg, var(--bg) 110deg,
-      var(--border2) 120deg, var(--bg) 130deg, var(--border2) 140deg,
-      var(--bg) 150deg, var(--border2) 160deg, var(--bg) 170deg,
-      var(--border2) 180deg, var(--bg) 190deg, var(--border2) 200deg,
-      var(--bg) 210deg, var(--border2) 220deg, var(--bg) 230deg,
-      var(--border2) 240deg, var(--bg) 250deg, var(--border2) 260deg,
-      var(--bg) 270deg, var(--border2) 280deg, var(--bg) 290deg,
-      var(--border2) 300deg, var(--bg) 310deg, var(--border2) 320deg,
-      var(--bg) 330deg, var(--border2) 340deg, var(--bg) 350deg, var(--border2) 360deg
-    );
-    margin: 0 auto 1.5rem;
-    position: relative;
-    animation: spin 4s linear infinite;
-  }
-  .victory-record::after {
-    content: '';
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%,-50%);
-    width: 22px; height: 22px;
-    border-radius: 50%;
-    background: var(--accent);
-  }
+  .victory-center { text-align: center; padding: 3rem 1rem; }
+  .victory-record { width: 80px; height: 80px; border-radius: 50%; background: conic-gradient(var(--border2) 0deg, var(--bg) 10deg, var(--border2) 20deg, var(--bg) 30deg, var(--border2) 40deg, var(--bg) 50deg, var(--border2) 60deg, var(--bg) 70deg, var(--border2) 80deg, var(--bg) 90deg, var(--border2) 100deg, var(--bg) 110deg, var(--border2) 120deg, var(--bg) 130deg, var(--border2) 140deg, var(--bg) 150deg, var(--border2) 160deg, var(--bg) 170deg, var(--border2) 180deg, var(--bg) 190deg, var(--border2) 200deg, var(--bg) 210deg, var(--border2) 220deg, var(--bg) 230deg, var(--border2) 240deg, var(--bg) 250deg, var(--border2) 260deg, var(--bg) 270deg, var(--border2) 280deg, var(--bg) 290deg, var(--border2) 300deg, var(--bg) 310deg, var(--border2) 320deg, var(--bg) 330deg, var(--border2) 340deg, var(--bg) 350deg, var(--border2) 360deg); margin: 0 auto 1.5rem; position: relative; animation: spin 4s linear infinite; }
+  .victory-record::after { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 22px; height: 22px; border-radius: 50%; background: var(--accent); }
   @keyframes spin { to { transform: rotate(360deg); } }
-  .victory-title {
-    font-family: 'Syne', sans-serif;
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: var(--accent);
-    margin-bottom: 0.5rem;
-  }
-  .victory-sub {
-    font-size: 0.75rem;
-    color: var(--text2);
-    margin-bottom: 2rem;
-    line-height: 1.6;
-  }
-  .score-display {
-    font-family: 'Syne', sans-serif;
-    font-size: 3rem;
-    font-weight: 800;
-    color: var(--text);
-    margin-bottom: 0.25rem;
-  }
-  .score-label {
-    font-size: 0.65rem;
-    color: var(--text3);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-bottom: 2rem;
-  }
-
-  /* TOAST */
-  .toast {
-    position: fixed;
-    bottom: 1.5rem; left: 50%;
-    transform: translateX(-50%) translateY(80px);
-    background: var(--surface);
-    border: 1px solid var(--border2);
-    border-radius: 5px;
-    font-size: 0.75rem;
-    color: var(--text2);
-    padding: 0.6rem 1.2rem;
-    letter-spacing: 0.05em;
-    transition: transform 0.3s;
-    pointer-events: none;
-    z-index: 100;
-    white-space: nowrap;
-  }
+  .victory-title { font-family: 'Syne', sans-serif; font-size: 1.8rem; font-weight: 800; color: var(--accent); margin-bottom: 0.5rem; }
+  .victory-sub { font-size: 0.75rem; color: var(--text2); margin-bottom: 2rem; line-height: 1.6; }
+  .score-display { font-family: 'Syne', sans-serif; font-size: 3rem; font-weight: 800; color: var(--text); margin-bottom: 0.25rem; }
+  .score-label { font-size: 0.65rem; color: var(--text3); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 2rem; }
+  .toast { position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%) translateY(80px); background: var(--surface); border: 1px solid var(--border2); border-radius: 5px; font-size: 0.75rem; color: var(--text2); padding: 0.6rem 1.2rem; letter-spacing: 0.05em; transition: transform 0.3s; pointer-events: none; z-index: 100; white-space: nowrap; }
   .toast.show { transform: translateX(-50%) translateY(0); }
-
-  /* STATS ROW */
-  .stats-row {
-    display: flex;
-    gap: 0.75rem;
-    margin-bottom: 2rem;
-  }
-  .stat-box {
-    flex: 1;
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 5px;
-    padding: 0.7rem;
-    text-align: center;
-  }
-  .stat-val {
-    font-family: 'Syne', sans-serif;
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--accent);
-  }
-  .stat-lbl {
-    font-size: 0.6rem;
-    color: var(--text3);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-
-  /* BACK BUTTON */
-  .back-btn {
-    background: transparent;
-    border: none;
-    color: var(--text3);
-    font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.1em;
-    cursor: pointer;
-    padding: 0;
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    transition: color 0.15s;
-  }
+  .stats-row { display: flex; gap: 0.75rem; margin-bottom: 2rem; }
+  .stat-box { flex: 1; background: var(--bg2); border: 1px solid var(--border); border-radius: 5px; padding: 0.7rem; text-align: center; }
+  .stat-val { font-family: 'Syne', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--accent); }
+  .stat-lbl { font-size: 0.6rem; color: var(--text3); letter-spacing: 0.1em; text-transform: uppercase; }
+  .back-btn { background: transparent; border: none; color: var(--text3); font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.1em; cursor: pointer; padding: 0; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.4rem; transition: color 0.15s; }
   .back-btn:hover { color: var(--accent); }
-
-  /* OVERALL PROGRESS */
-  .overall-bar-wrap {
-    margin-bottom: 2rem;
-    padding: 1rem 1.2rem;
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-  }
-  .overall-bar-label {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.65rem;
-    color: var(--text3);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 0.6rem;
-  }
-  .overall-bar {
-    height: 3px;
-    background: var(--border);
-    border-radius: 2px;
-    overflow: hidden;
-  }
-  .overall-bar-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--accent3), var(--accent));
-    border-radius: 2px;
-    transition: width 0.5s;
-  }
+  .overall-bar-wrap { margin-bottom: 2rem; padding: 1rem 1.2rem; background: var(--bg2); border: 1px solid var(--border); border-radius: 6px; }
+  .overall-bar-label { display: flex; justify-content: space-between; font-size: 0.65rem; color: var(--text3); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.6rem; }
+  .overall-bar { height: 3px; background: var(--border); border-radius: 2px; overflow: hidden; }
+  .overall-bar-fill { height: 100%; background: linear-gradient(90deg, var(--accent3), var(--accent)); border-radius: 2px; transition: width 0.5s; }
+  .hint-reveal { font-size: 0.8rem; color: var(--info); letter-spacing: 0.1em; font-family: 'Syne', sans-serif; margin-top: 0.5rem; }
 </style>
 </head>
 <body>
@@ -536,7 +104,7 @@
     <div class="record-icon"></div>
     <div>
       <div class="game-title">B-SIDE</div>
-      <div class="game-subtitle">the other face of every word</div>
+      <div class="game-subtitle" id="header-subtitle">the other face of every word</div>
     </div>
   </div>
   <div class="header-right">
@@ -549,11 +117,10 @@
 </div>
 
 <div class="main">
-
-  <!-- HOME SCREEN -->
+  <!-- HOME -->
   <div class="screen active" id="screen-home">
     <div class="home-intro">
-      <p id="intro-text">Every word has another face. A real name behind a <em>pen name</em>. A city behind a <em>code</em>. A phrase behind an <em>acronym</em>. Flip the record — find the B-Side.</p>
+      <p id="intro-text"></p>
     </div>
     <div class="overall-bar-wrap">
       <div class="overall-bar-label">
@@ -565,181 +132,187 @@
     <div class="categories-grid" id="categories-grid"></div>
   </div>
 
-  <!-- GAME SCREEN -->
+  <!-- GAME -->
   <div class="screen" id="screen-game">
-    <button class="back-btn" onclick="goHome()">← <span id="back-label">categories</span></button>
+    <button class="back-btn" onclick="goHome()">← <span id="back-label">records</span></button>
     <div class="game-header">
       <div class="game-cat-name" id="game-cat-name"></div>
       <div class="game-progress-text" id="game-prog-text"></div>
     </div>
     <div class="game-progress-bar"><div class="game-progress-fill" id="game-prog-fill" style="width:0%"></div></div>
-
     <div class="stats-row">
       <div class="stat-box"><div class="stat-val" id="stat-correct">0</div><div class="stat-lbl" id="lbl-correct">correct</div></div>
       <div class="stat-box"><div class="stat-val" id="stat-lives">3</div><div class="stat-lbl" id="lbl-lives">lives</div></div>
       <div class="stat-box"><div class="stat-val" id="stat-streak">0</div><div class="stat-lbl" id="lbl-streak">streak</div></div>
     </div>
-
     <div class="side-tag a" id="side-tag">A-SIDE → B-SIDE</div>
     <div class="prompt-card">
       <div class="prompt-hint" id="prompt-hint"></div>
       <div class="prompt-text" id="prompt-text"></div>
       <div class="prompt-context" id="prompt-context"></div>
+      <div class="hint-reveal" id="hint-reveal"></div>
     </div>
-
     <div class="answer-row">
-      <input class="answer-input" type="text" id="answer-input" placeholder="your answer..." autocomplete="off" autocorrect="off" spellcheck="false" />
+      <input class="answer-input" type="text" id="answer-input" autocomplete="off" autocorrect="off" spellcheck="false" />
       <button class="submit-btn" onclick="submitAnswer()" id="submit-btn">FLIP</button>
     </div>
     <div class="feedback-row" id="feedback-row"></div>
-
     <div class="action-row">
-      <button class="action-btn" onclick="skipQuestion()" id="skip-btn">skip</button>
       <button class="action-btn" id="next-btn" onclick="nextQuestion()" style="display:none">next →</button>
     </div>
   </div>
 
-  <!-- VICTORY SCREEN -->
+  <!-- VICTORY -->
   <div class="screen" id="screen-victory">
     <div class="victory-center">
       <div class="victory-record"></div>
       <div class="victory-title" id="victory-title">SIDE B COMPLETE</div>
-      <div class="victory-sub" id="victory-sub">You flipped every record in this category.</div>
+      <div class="victory-sub" id="victory-sub"></div>
       <div class="score-display" id="victory-score"></div>
       <div class="score-label" id="victory-score-label">correct answers</div>
       <div class="action-row" style="justify-content:center; margin-top:1rem;">
         <button class="action-btn primary" onclick="goHome()" id="victory-home-btn">back to catalog</button>
         <button class="action-btn" onclick="replayCategory()" id="victory-replay-btn">replay</button>
+        <button class="action-btn brag" onclick="brag()" id="victory-brag-btn">brag →</button>
       </div>
     </div>
   </div>
-
 </div>
 
 <div class="toast" id="toast"></div>
 
 <script>
+// ─── DATA ───────────────────────────────────────────────────────────────────
 const CATEGORIES = {
   pseudonyms: {
-    nameEN: "Pen Names & Alter Egos",
-    nameES: "Seudónimos",
-    descEN: "Real names behind the mask",
-    descES: "El nombre real detrás de la máscara",
-    hintEN: "Real name →",
-    hintES: "Nombre real →",
+    nameEN: "Pen Names & Alter Egos", nameES: "Seudónimos",
+    descEN: "Real names behind the mask", descES: "El nombre real detrás de la máscara",
+    hintEN: "Real name →", hintES: "Nombre real →",
     pairs: [
-      { a: "François-Marie Arouet", b: "Voltaire", ctx: "French writer & philosopher" },
-      { a: "Charles Lutwidge Dodgson", b: "Lewis Carroll", ctx: "Alice in Wonderland" },
-      { a: "Mary Ann Evans", b: "George Eliot", ctx: "Middlemarch" },
-      { a: "Józef Korzeniowski", b: "Joseph Conrad", ctx: "Heart of Darkness" },
-      { a: "Eric Arthur Blair", b: "George Orwell", ctx: "1984, Animal Farm" },
-      { a: "Alexei Maximovich Peshkov", b: "Maxim Gorky", ctx: "Russian writer" },
-      { a: "Samuel Langhorne Clemens", b: "Mark Twain", ctx: "Tom Sawyer, Huck Finn" },
-      { a: "Karen Christentze Blixen", b: "Isak Dinesen", ctx: "Out of Africa" },
-      { a: "Władysław Stanisław Reymont", b: "Reymont", ctx: "Nobel Prize 1924" },
-      { a: "Juana de Asbaje", b: "Sor Juana Inés de la Cruz", ctx: "Mexican baroque poet" },
-      { a: "Madonna Louise Ciccone", b: "Madonna", ctx: "Queen of Pop" },
-      { a: "Robert Allen Zimmerman", b: "Bob Dylan", ctx: "Nobel Prize in Literature 2016" },
-      { a: "Stefani Joanne Germanotta", b: "Lady Gaga", ctx: "Pop artist" },
-      { a: "Onika Tanya Maraj", b: "Nicki Minaj", ctx: "Rapper" },
-      { a: "Marshall Bruce Mathers III", b: "Eminem", ctx: "Rapper" },
+      { a: "François-Marie Arouet", b: "Voltaire", b_es: "Voltaire", ctx: "French writer & philosopher" },
+      { a: "Charles Lutwidge Dodgson", b: "Lewis Carroll", b_es: "Lewis Carroll", ctx: "Alice in Wonderland" },
+      { a: "Mary Ann Evans", b: "George Eliot", b_es: "George Eliot", ctx: "Middlemarch" },
+      { a: "Józef Korzeniowski", b: "Joseph Conrad", b_es: "Joseph Conrad", ctx: "Heart of Darkness" },
+      { a: "Eric Arthur Blair", b: "George Orwell", b_es: "George Orwell", ctx: "1984, Animal Farm" },
+      { a: "Samuel Langhorne Clemens", b: "Mark Twain", b_es: "Mark Twain", ctx: "Tom Sawyer, Huck Finn" },
+      { a: "Karen Christentze Blixen", b: "Isak Dinesen", b_es: "Isak Dinesen", ctx: "Out of Africa" },
+      { a: "Juana de Asbaje", b: "Sor Juana Inés de la Cruz", b_es: "Sor Juana Inés de la Cruz", ctx: "Mexican baroque poet" },
+      { a: "Jean-Baptiste Poquelin", b: "Molière", b_es: "Molière", ctx: "French playwright" },
+      { a: "Neftalí Ricardo Reyes Basoalto", b: "Pablo Neruda", b_es: "Pablo Neruda", ctx: "Chilean poet, Nobel 1971" },
+      { a: "Lucila Godoy Alcayaga", b: "Gabriela Mistral", b_es: "Gabriela Mistral", ctx: "Chilean poet, Nobel 1945" },
+      { a: "Iosif Vissarionovich Dzhugashvili", b: "Joseph Stalin", b_es: "Stalin", ctx: "Soviet leader" },
+      { a: "Vladimir Ilyich Ulyanov", b: "Lenin", b_es: "Lenin", ctx: "Russian revolutionary" },
+      { a: "Lev Davidovich Bronstein", b: "Leon Trotsky", b_es: "Trotsky", ctx: "Russian revolutionary" },
+      { a: "Madonna Louise Ciccone", b: "Madonna", b_es: "Madonna", ctx: "Queen of Pop" },
+      { a: "Robert Allen Zimmerman", b: "Bob Dylan", b_es: "Bob Dylan", ctx: "Nobel Prize in Literature 2016" },
+      { a: "Katheryn Elizabeth Hudson", b: "Katy Perry", b_es: "Katy Perry", ctx: "Pop artist" },
+      { a: "Stefani Joanne Germanotta", b: "Lady Gaga", b_es: "Lady Gaga", ctx: "Pop artist" },
+      { a: "Marshall Bruce Mathers III", b: "Eminem", b_es: "Eminem", ctx: "Rapper" },
+      { a: "Susan Abigail Tomalin", b: "Susan Sarandon", b_es: "Susan Sarandon", ctx: "Actress" },
+      { a: "Sigourney Weaver", b: "Susan Alexandra Weaver", b_es: "Susan Alexandra Weaver", ctx: "Born Susan Alexandra Weaver" },
     ]
   },
   acronyms: {
-    nameEN: "Acronyms Expanded",
-    nameES: "Acrónimos",
-    descEN: "Behind every abbreviation, a full name",
-    descES: "Detrás de cada sigla, un nombre completo",
-    hintEN: "Acronym →",
-    hintES: "Sigla →",
+    nameEN: "Acronyms Expanded", nameES: "Acrónimos",
+    descEN: "Behind every abbreviation, a full name", descES: "Detrás de cada sigla, un nombre completo",
+    hintEN: "Acronym →", hintES: "Sigla →",
     pairs: [
-      { a: "UNESCO", b: "United Nations Educational, Scientific and Cultural Organization", ctx: "" },
-      { a: "NATO", b: "North Atlantic Treaty Organization", ctx: "" },
-      { a: "LASER", b: "Light Amplification by Stimulated Emission of Radiation", ctx: "lexicalized acronym" },
-      { a: "RADAR", b: "Radio Detection And Ranging", ctx: "lexicalized acronym" },
-      { a: "SCUBA", b: "Self-Contained Underwater Breathing Apparatus", ctx: "lexicalized acronym" },
-      { a: "NASA", b: "National Aeronautics and Space Administration", ctx: "" },
-      { a: "OPEC", b: "Organization of the Petroleum Exporting Countries", ctx: "" },
-      { a: "UNICEF", b: "United Nations International Children's Emergency Fund", ctx: "" },
-      { a: "AIDS", b: "Acquired Immune Deficiency Syndrome", ctx: "lexicalized acronym" },
-      { a: "IAEA", b: "International Atomic Energy Agency", ctx: "" },
-      { a: "WHO", b: "World Health Organization", ctx: "" },
-      { a: "IMF", b: "International Monetary Fund", ctx: "" },
+      { a: "FBI", b: "Federal Bureau of Investigation", b_es: "Oficina Federal de Investigación", ctx: "US law enforcement" },
+      { a: "CIA", b: "Central Intelligence Agency", b_es: "Agencia Central de Inteligencia", ctx: "US intelligence" },
+      { a: "WHO", b: "World Health Organization", b_es: "Organización Mundial de la Salud", ctx: "" },
+      { a: "FAO", b: "Food and Agriculture Organization", b_es: "Organización para la Alimentación y la Agricultura", ctx: "United Nations agency" },
+      { a: "IMF", b: "International Monetary Fund", b_es: "Fondo Monetario Internacional", ctx: "" },
+      { a: "CDC", b: "Centers for Disease Control and Prevention", b_es: "Centros para el Control y la Prevención de Enfermedades", ctx: "US public health" },
+      { a: "NASA", b: "National Aeronautics and Space Administration", b_es: "Administración Nacional de Aeronáutica y del Espacio", ctx: "" },
+      { a: "UNESCO", b: "United Nations Educational, Scientific and Cultural Organization", b_es: "Organización de las Naciones Unidas para la Educación, la Ciencia y la Cultura", ctx: "" },
+      { a: "UNICEF", b: "United Nations International Children's Emergency Fund", b_es: "Fondo Internacional de Emergencia de las Naciones Unidas para la Infancia", ctx: "" },
+      { a: "NATO", b: "North Atlantic Treaty Organization", b_es: "Organización del Tratado del Atlántico Norte", ctx: "" },
+      { a: "OPEC", b: "Organization of the Petroleum Exporting Countries", b_es: "Organización de Países Exportadores de Petróleo", ctx: "" },
+      { a: "LASER", b: "Light Amplification by Stimulated Emission of Radiation", b_es: "Amplificación de Luz por Emisión Estimulada de Radiación", ctx: "lexicalized acronym" },
+      { a: "RADAR", b: "Radio Detection And Ranging", b_es: "Detección y Medición de Distancia por Radio", ctx: "lexicalized acronym" },
+      { a: "SCUBA", b: "Self-Contained Underwater Breathing Apparatus", b_es: "Aparato Autónomo de Respiración Subacuática", ctx: "lexicalized acronym" },
+      { a: "AIDS", b: "Acquired Immune Deficiency Syndrome", b_es: "Síndrome de Inmunodeficiencia Adquirida", ctx: "also: SIDA in Spanish" },
+      { a: "IMDB", b: "Internet Movie Database", b_es: "Base de Datos de Películas en Internet", ctx: "film reference site" },
     ]
   },
   toponyms: {
-    nameEN: "Lost City Names",
-    nameES: "Topónimos Perdidos",
-    descEN: "Historic names of cities that were renamed",
-    descES: "Nombres históricos de ciudades renombradas",
-    hintEN: "Former name →",
-    hintES: "Nombre anterior →",
+    nameEN: "Obsolete Geography", nameES: "Geografía Obsoleta",
+    descEN: "Former names of places that were renamed or no longer exist", descES: "Nombres anteriores de lugares renombrados o desaparecidos",
+    hintEN: "Former name →", hintES: "Nombre anterior →",
     pairs: [
-      { a: "Constantinopla", b: "Istanbul", ctx: "Ottoman conquest, 1453" },
-      { a: "Leningrado", b: "Saint Petersburg", ctx: "renamed 1991" },
-      { a: "Saigón", b: "Ho Chi Minh City", ctx: "renamed 1976" },
-      { a: "Pekín (Peking)", b: "Beijing", ctx: "pinyin standardization" },
-      { a: "Bombay", b: "Mumbai", ctx: "renamed 1995" },
-      { a: "Calcuta", b: "Kolkata", ctx: "renamed 2001" },
-      { a: "Madras", b: "Chennai", ctx: "renamed 1996" },
-      { a: "Batavia", b: "Jakarta", ctx: "Dutch colonial name" },
-      { a: "Christiania", b: "Oslo", ctx: "Norwegian capital" },
-      { a: "Stalingrado", b: "Volgograd", ctx: "renamed 1961" },
-      { a: "Rhodesia del Sur", b: "Zimbabwe", ctx: "independence 1980" },
-      { a: "Persia", b: "Iran", ctx: "official change 1935" },
-      { a: "Ceilán", b: "Sri Lanka", ctx: "renamed 1972" },
-      { a: "Formosa", b: "Taiwan", ctx: "Portuguese name" },
+      { a: "Constantinople", b: "Istanbul", b_es: "Estambul", ctx: "Ottoman conquest, 1453" },
+      { a: "Leningrad", b: "Saint Petersburg", b_es: "San Petersburgo", ctx: "renamed 1991" },
+      { a: "Saigon", b: "Ho Chi Minh City", b_es: "Ciudad Ho Chi Minh", ctx: "renamed 1976" },
+      { a: "Peking", b: "Beijing", b_es: "Pekín", ctx: "pinyin standardization" },
+      { a: "Bombay", b: "Mumbai", b_es: "Bombay / Mumbai", ctx: "renamed 1995" },
+      { a: "Calcutta", b: "Kolkata", b_es: "Calcuta / Kolkata", ctx: "renamed 2001" },
+      { a: "Madras", b: "Chennai", b_es: "Madrás / Chennai", ctx: "renamed 1996" },
+      { a: "Batavia", b: "Jakarta", b_es: "Yakarta", ctx: "Dutch colonial name" },
+      { a: "Christiania", b: "Oslo", b_es: "Oslo", ctx: "Norwegian capital, renamed 1925" },
+      { a: "Stalingrad", b: "Volgograd", b_es: "Volgogrado", ctx: "renamed 1961" },
+      { a: "Southern Rhodesia", b: "Zimbabwe", b_es: "Zimbabue", ctx: "independence 1980" },
+      { a: "Persia", b: "Iran", b_es: "Irán", ctx: "official change 1935" },
+      { a: "Ceylon", b: "Sri Lanka", b_es: "Sri Lanka", ctx: "renamed 1972" },
+      { a: "Formosa", b: "Taiwan", b_es: "Taiwán", ctx: "Portuguese name" },
     ]
   },
   latin: {
-    nameEN: "Latin & French in English",
-    nameES: "Latín y francés en inglés",
-    descEN: "Expressions borrowed into everyday English",
-    descES: "Expresiones prestadas al inglés cotidiano",
-    hintEN: "Expression →",
-    hintES: "Expresión →",
+    nameEN: "Latin & French in English", nameES: "Latín y francés cotidianos",
+    descEN: "Expressions borrowed into everyday English", descES: "Expresiones prestadas al inglés cotidiano",
+    hintEN: "Expression →", hintES: "Expresión →",
     pairs: [
-      { a: "et cetera", b: "and so forth / and so on", ctx: "Latin" },
-      { a: "e.g.", b: "for example", ctx: "Latin: exempli gratia" },
-      { a: "i.e.", b: "that is", ctx: "Latin: id est" },
-      { a: "vice versa", b: "the other way around", ctx: "Latin" },
-      { a: "per capita", b: "per person / by head", ctx: "Latin" },
-      { a: "status quo", b: "the existing state of affairs", ctx: "Latin" },
-      { a: "modus operandi", b: "way of operating / method", ctx: "Latin" },
-      { a: "carte blanche", b: "full freedom / blank check", ctx: "French" },
-      { a: "faux pas", b: "social blunder / mistake", ctx: "French" },
-      { a: "vis-à-vis", b: "face to face / in relation to", ctx: "French" },
-      { a: "raison d'être", b: "reason for being / purpose", ctx: "French" },
-      { a: "bête noire", b: "pet peeve / dreaded thing", ctx: "French" },
-      { a: "à la carte", b: "ordered separately / by the menu", ctx: "French" },
-      { a: "bon vivant", b: "person who enjoys the good life", ctx: "French" },
-      { a: "in situ", b: "in place / on-site", ctx: "Latin" },
+      { a: "et cetera", b: "and so forth", b_es: "etcétera / y así sucesivamente",
+        alt: ["etc", "and so on", "and so forth", "and the rest", "and others"], ctx: "Latin" },
+      { a: "e.g.", b: "for example", b_es: "por ejemplo",
+        alt: ["for example", "for instance"], ctx: "Latin: exempli gratia" },
+      { a: "i.e.", b: "that is", b_es: "es decir",
+        alt: ["that is", "in other words", "that is to say"], ctx: "Latin: id est" },
+      { a: "vice versa", b: "the other way around", b_es: "al revés / viceversa",
+        alt: ["the other way around", "conversely", "in reverse"], ctx: "Latin" },
+      { a: "per capita", b: "per person", b_es: "por persona / por cabeza",
+        alt: ["per person", "by head", "per head", "per individual"], ctx: "Latin" },
+      { a: "status quo", b: "the existing state of affairs", b_es: "el estado actual de las cosas",
+        alt: ["the existing state of affairs", "the current situation", "the current state", "things as they are", "existing situation"], ctx: "Latin" },
+      { a: "modus operandi", b: "way of operating", b_es: "modo de operar / método de trabajo",
+        alt: ["way of operating", "method", "way of working", "mode of operation"], ctx: "Latin" },
+      { a: "carte blanche", b: "full freedom to act", b_es: "carta blanca / libertad total",
+        alt: ["full freedom", "blank check", "free rein", "unconditional authority", "full freedom to act"], ctx: "French" },
+      { a: "faux pas", b: "social blunder", b_es: "metida de pata / error social",
+        alt: ["social blunder", "social mistake", "gaffe", "blunder", "embarrassing mistake"], ctx: "French" },
+      { a: "vis-à-vis", b: "face to face", b_es: "frente a frente / en relación a",
+        alt: ["face to face", "in relation to", "regarding", "opposite", "compared to"], ctx: "French" },
+      { a: "raison d'être", b: "reason for being", b_es: "razón de ser",
+        alt: ["reason for being", "reason to be", "purpose", "reason for existence"], ctx: "French" },
+      { a: "bête noire", b: "pet peeve", b_es: "bestia negra / pesadilla personal",
+        alt: ["pet peeve", "dreaded thing", "nemesis", "bugbear", "something dreaded"], ctx: "French" },
+      { a: "bon vivant", b: "person who enjoys the good life", b_es: "persona que goza de la buena vida",
+        alt: ["person who enjoys the good life", "lover of good living", "epicurean", "pleasure seeker"], ctx: "French" },
+      { a: "in situ", b: "in place", b_es: "en el lugar / in situ",
+        alt: ["in place", "on site", "in position", "on location", "in the original place"], ctx: "Latin" },
     ]
   },
   chemical: {
-    nameEN: "Chemical Symbols",
-    nameES: "Símbolos Químicos",
-    descEN: "The non-obvious elements: symbol to name",
-    descES: "Los elementos no obvios: símbolo al nombre",
-    hintEN: "Symbol →",
-    hintES: "Símbolo →",
+    nameEN: "Chemical Symbols", nameES: "Símbolos Químicos",
+    descEN: "The non-obvious elements: symbol to name", descES: "Los elementos no obvios: símbolo al nombre",
+    hintEN: "Symbol →", hintES: "Símbolo →",
     pairs: [
-      { a: "Au", b: "Gold", ctx: "from Latin aurum" },
-      { a: "Ag", b: "Silver", ctx: "from Latin argentum" },
-      { a: "Fe", b: "Iron", ctx: "from Latin ferrum" },
-      { a: "Cu", b: "Copper", ctx: "from Latin cuprum" },
-      { a: "Pb", b: "Lead", ctx: "from Latin plumbum" },
-      { a: "Sn", b: "Tin", ctx: "from Latin stannum" },
-      { a: "Hg", b: "Mercury", ctx: "from Latin hydrargyrum" },
-      { a: "K", b: "Potassium", ctx: "from Latin kalium" },
-      { a: "Na", b: "Sodium", ctx: "from Latin natrium" },
-      { a: "W", b: "Tungsten", ctx: "from German Wolfram" },
-      { a: "Sb", b: "Antimony", ctx: "from Latin stibium" },
-      { a: "Bi", b: "Bismuth", ctx: "from German Wismut" },
+      { a: "Au", b: "Gold", b_es: "Oro", ctx: "from Latin aurum" },
+      { a: "Ag", b: "Silver", b_es: "Plata", ctx: "from Latin argentum" },
+      { a: "Fe", b: "Iron", b_es: "Hierro", ctx: "from Latin ferrum" },
+      { a: "Cu", b: "Copper", b_es: "Cobre", ctx: "from Latin cuprum" },
+      { a: "Pb", b: "Lead", b_es: "Plomo", ctx: "from Latin plumbum" },
+      { a: "Sn", b: "Tin", b_es: "Estaño", ctx: "from Latin stannum" },
+      { a: "Hg", b: "Mercury", b_es: "Mercurio", ctx: "from Latin hydrargyrum" },
+      { a: "K", b: "Potassium", b_es: "Potasio", ctx: "from Latin kalium" },
+      { a: "Na", b: "Sodium", b_es: "Sodio", ctx: "from Latin natrium" },
+      { a: "W", b: "Tungsten", b_es: "Wolframio", ctx: "from German Wolfram" },
+      { a: "Sb", b: "Antimony", b_es: "Antimonio", ctx: "from Latin stibium — IUPAC name" },
+      { a: "Bi", b: "Bismuth", b_es: "Bismuto", ctx: "from German Wismut" },
     ]
   }
 };
 
+// ─── STATE ──────────────────────────────────────────────────────────────────
 let lang = 'en';
 let currentCat = null;
 let currentPairs = [];
@@ -748,19 +321,19 @@ let lives = 3;
 let correct = 0;
 let streak = 0;
 let answered = false;
+let wrongAttempts = 0;
 let progress = {};
+let lastScore = { correct: 0, total: 0, cat: '' };
 
+// ─── PERSISTENCE ────────────────────────────────────────────────────────────
 function loadProgress() {
-  try {
-    const saved = localStorage.getItem('bside_progress_v1');
-    if (saved) progress = JSON.parse(saved);
-  } catch(e) {}
+  try { const s = localStorage.getItem('bside_progress_v2'); if (s) progress = JSON.parse(s); } catch(e) {}
 }
-
 function saveProgress() {
-  try { localStorage.setItem('bside_progress_v1', JSON.stringify(progress)); } catch(e) {}
+  try { localStorage.setItem('bside_progress_v2', JSON.stringify(progress)); } catch(e) {}
 }
 
+// ─── LANGUAGE ───────────────────────────────────────────────────────────────
 function setLang(l) {
   lang = l;
   document.getElementById('btn-en').classList.toggle('active', l === 'en');
@@ -768,40 +341,34 @@ function setLang(l) {
   renderHome();
 }
 
+// ─── HOME ────────────────────────────────────────────────────────────────────
 function renderHome() {
-  document.getElementById('screen-home').classList.add('active');
-  document.getElementById('screen-game').classList.remove('active');
-  document.getElementById('screen-victory').classList.remove('active');
-
+  showScreen('home');
   const intros = {
     en: `Every word has another face. A real name behind a <em>pen name</em>. A city behind a <em>code</em>. A phrase behind an <em>acronym</em>. Flip the record — find the B-Side.`,
     es: `Toda palabra tiene otra cara. Un nombre real detrás de un <em>seudónimo</em>. Una ciudad detrás de un <em>código</em>. Una frase detrás de un <em>acrónimo</em>. Dale la vuelta al disco — encuentra el B-Side.`
   };
   document.getElementById('intro-text').innerHTML = intros[lang];
   document.getElementById('overall-label').textContent = lang === 'en' ? 'overall progress' : 'progreso general';
-  document.getElementById('back-label').textContent = lang === 'en' ? 'categories' : 'categorías';
+  document.getElementById('back-label').textContent = lang === 'en' ? 'records' : 'discotecas';
+  document.getElementById('header-subtitle').textContent = lang === 'en' ? 'the other face of every word' : 'la otra cara de cada palabra';
 
   const grid = document.getElementById('categories-grid');
   grid.innerHTML = '';
-
   let totalPairs = 0, totalDone = 0;
 
   Object.entries(CATEGORIES).forEach(([key, cat]) => {
     const done = progress[key] || 0;
     const total = cat.pairs.length;
-    totalPairs += total;
-    totalDone += Math.min(done, total);
+    totalPairs += total; totalDone += Math.min(done, total);
     const pct = Math.round((done / total) * 100);
-    const completed = done >= total;
-
     const card = document.createElement('div');
-    card.className = 'cat-card' + (completed ? ' completed' : '');
+    card.className = 'cat-card' + (done >= total ? ' completed' : '');
     card.innerHTML = `
       <div class="cat-count">${done}/${total}</div>
       <div class="cat-name">${lang === 'en' ? cat.nameEN : cat.nameES}</div>
       <div class="cat-desc">${lang === 'en' ? cat.descEN : cat.descES}</div>
-      <div class="cat-progress"><div class="cat-progress-fill" style="width:${pct}%"></div></div>
-    `;
+      <div class="cat-progress"><div class="cat-progress-fill" style="width:${pct}%"></div></div>`;
     card.onclick = () => startCategory(key);
     grid.appendChild(card);
   });
@@ -811,26 +378,19 @@ function renderHome() {
   document.getElementById('overall-fill').style.width = overallPct + '%';
 }
 
+// ─── GAME ────────────────────────────────────────────────────────────────────
 function shuffle(arr) {
   const a = [...arr];
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
+  for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
   return a;
 }
 
 function startCategory(key) {
   currentCat = key;
-  const cat = CATEGORIES[key];
-  currentPairs = shuffle(cat.pairs);
-  currentIndex = 0;
-  lives = 3;
-  correct = 0;
-  streak = 0;
-  answered = false;
-
+  currentPairs = shuffle(CATEGORIES[key].pairs);
+  currentIndex = 0; lives = 3; correct = 0; streak = 0; answered = false;
   showScreen('game');
+  const cat = CATEGORIES[key];
   document.getElementById('game-cat-name').textContent = lang === 'en' ? cat.nameEN : cat.nameES;
   document.getElementById('lbl-correct').textContent = lang === 'en' ? 'correct' : 'correctas';
   document.getElementById('lbl-lives').textContent = lang === 'en' ? 'lives' : 'vidas';
@@ -840,11 +400,8 @@ function startCategory(key) {
 }
 
 function loadQuestion() {
-  if (currentIndex >= currentPairs.length) {
-    endCategory();
-    return;
-  }
-  answered = false;
+  if (currentIndex >= currentPairs.length) { endCategory(); return; }
+  answered = false; wrongAttempts = 0;
   const pair = currentPairs[currentIndex];
   const cat = CATEGORIES[currentCat];
   const total = currentPairs.length;
@@ -854,48 +411,61 @@ function loadQuestion() {
   document.getElementById('stat-correct').textContent = correct;
   document.getElementById('stat-lives').textContent = lives;
   document.getElementById('stat-streak').textContent = streak;
-
   document.getElementById('prompt-hint').textContent = lang === 'en' ? cat.hintEN : cat.hintES;
   document.getElementById('prompt-text').textContent = pair.a;
   document.getElementById('prompt-context').textContent = pair.ctx || '';
+  document.getElementById('hint-reveal').textContent = '';
 
   const input = document.getElementById('answer-input');
-  input.value = '';
-  input.className = 'answer-input';
-  input.disabled = false;
+  input.value = ''; input.className = 'answer-input'; input.disabled = false;
   input.placeholder = lang === 'en' ? 'your answer...' : 'tu respuesta...';
 
   document.getElementById('feedback-row').textContent = '';
   document.getElementById('feedback-row').className = 'feedback-row';
   document.getElementById('submit-btn').style.display = '';
   document.getElementById('submit-btn').textContent = lang === 'en' ? 'FLIP' : 'VOLTEAR';
-  document.getElementById('skip-btn').style.display = '';
-  document.getElementById('skip-btn').textContent = lang === 'en' ? 'skip' : 'saltar';
   document.getElementById('next-btn').style.display = 'none';
 
   setTimeout(() => input.focus(), 50);
 }
 
+// ─── ANSWER VALIDATION ───────────────────────────────────────────────────────
 function normalize(str) {
-  return str.toLowerCase()
-    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9\s]/g, '')
-    .replace(/\s+/g, ' ')
-    .trim();
+  return str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9\s]/g, '').replace(/\s+/g, ' ').trim();
 }
 
-function checkAnswer(userAnswer, correct) {
+function checkAnswer(userAnswer, pair) {
   const u = normalize(userAnswer);
+  const correctAnswer = lang === 'en' ? pair.b : (pair.b_es || pair.b);
+  const alts = pair.alt || [];
+
+  // Check main answer
+  if (matchesAnswer(u, correctAnswer)) return true;
+  // Check alternatives
+  for (const alt of alts) { if (matchesAnswer(u, alt)) return true; }
+  return false;
+}
+
+function matchesAnswer(u, correct) {
   const c = normalize(correct);
   if (u === c) return true;
-  const cWords = c.split(' ');
-  const uWords = u.split(' ');
-  const matches = uWords.filter(w => w.length > 2 && cWords.includes(w));
-  const pct = matches.length / cWords.length;
-  if (cWords.length <= 3) return u === c;
-  return pct >= 0.7;
+  const cWords = c.split(' ').filter(w => w.length > 2);
+  const uWords = u.split(' ').filter(w => w.length > 2);
+  if (cWords.length === 0) return false;
+  if (cWords.length <= 2) return u === c;
+  const matches = uWords.filter(w => cWords.includes(w));
+  return (matches.length / cWords.length) >= 0.7;
 }
 
+function getHint(pair) {
+  const answer = lang === 'en' ? pair.b : (pair.b_es || pair.b);
+  const words = answer.split(' ');
+  // Show first letter of each word
+  return words.map(w => w[0] + '_'.repeat(Math.max(0, w.length - 1))).join(' ');
+}
+
+// ─── SUBMIT ──────────────────────────────────────────────────────────────────
 function submitAnswer() {
   if (answered) { nextQuestion(); return; }
   const input = document.getElementById('answer-input');
@@ -903,42 +473,56 @@ function submitAnswer() {
   if (!userVal) return;
 
   const pair = currentPairs[currentIndex];
-  const isCorrect = checkAnswer(userVal, pair.b);
-  answered = true;
-
-  input.disabled = true;
-  document.getElementById('submit-btn').style.display = 'none';
-  document.getElementById('skip-btn').style.display = 'none';
-  document.getElementById('next-btn').style.display = '';
-  document.getElementById('next-btn').textContent = lang === 'en' ? 'next →' : 'siguiente →';
-
+  const isCorrect = checkAnswer(userVal, pair);
   const fb = document.getElementById('feedback-row');
+
   if (isCorrect) {
+    answered = true; input.disabled = true; correct++; streak++;
     input.className = 'answer-input correct';
-    correct++;
-    streak++;
     fb.className = 'feedback-row correct';
     fb.textContent = lang === 'en'
       ? (streak > 2 ? `✓ correct — ${streak} in a row!` : '✓ correct')
       : (streak > 2 ? `✓ correcto — ¡${streak} seguidos!` : '✓ correcto');
+    document.getElementById('submit-btn').style.display = 'none';
+    document.getElementById('next-btn').style.display = '';
+    document.getElementById('next-btn').textContent = lang === 'en' ? 'next →' : 'siguiente →';
   } else {
-    input.className = 'answer-input wrong';
-    lives--;
-    streak = 0;
+    wrongAttempts++;
+    lives--; streak = 0;
     updateLivesDisplay();
-    fb.className = 'feedback-row wrong';
-    fb.textContent = (lang === 'en' ? '✗ the B-Side is: ' : '✗ el B-Side es: ') + pair.b;
+    input.className = 'answer-input wrong';
+
+    if (wrongAttempts === 1) {
+      // First wrong: show hint, lose a life, keep trying
+      fb.className = 'feedback-row hint';
+      fb.textContent = lang === 'en' ? '✗ not quite — here\'s a clue:' : '✗ no es — aquí una pista:';
+      document.getElementById('hint-reveal').textContent = getHint(pair);
+      input.value = ''; input.className = 'answer-input'; 
+      setTimeout(() => input.focus(), 50);
+    } else {
+      // Second wrong: reveal answer
+      answered = true; input.disabled = true;
+      const answer = lang === 'en' ? pair.b : (pair.b_es || pair.b);
+      fb.className = 'feedback-row wrong';
+      fb.textContent = (lang === 'en' ? '✗ the B-Side is: ' : '✗ el B-Side es: ') + answer;
+      document.getElementById('hint-reveal').textContent = '';
+      document.getElementById('submit-btn').style.display = 'none';
+      document.getElementById('next-btn').style.display = '';
+      document.getElementById('next-btn').textContent = lang === 'en' ? 'next →' : 'siguiente →';
+    }
+
+    document.getElementById('stat-lives').textContent = lives;
+    document.getElementById('stat-streak').textContent = streak;
+
     if (lives <= 0) {
       setTimeout(() => {
-        showToast(lang === 'en' ? 'No more lives — category over.' : 'Sin vidas — categoría terminada.');
+        showToast(lang === 'en' ? 'No more lives — record over.' : 'Sin vidas — se acabó el disco.');
         setTimeout(() => endCategory(), 1200);
-      }, 1000);
-      return;
+      }, answered ? 200 : 800);
     }
   }
+
   document.getElementById('stat-correct').textContent = correct;
-  document.getElementById('stat-lives').textContent = lives;
-  document.getElementById('stat-streak').textContent = streak;
 }
 
 function nextQuestion() {
@@ -946,34 +530,25 @@ function nextQuestion() {
   loadQuestion();
 }
 
-function skipQuestion() {
-  if (answered) return;
-  const pair = currentPairs[currentIndex];
-  const fb = document.getElementById('feedback-row');
-  fb.className = 'feedback-row wrong';
-  fb.textContent = (lang === 'en' ? 'skipped — B-Side was: ' : 'saltado — era: ') + pair.b;
-  answered = true;
-  streak = 0;
-  document.getElementById('skip-btn').style.display = 'none';
-  document.getElementById('submit-btn').style.display = 'none';
-  document.getElementById('next-btn').style.display = '';
-  document.getElementById('next-btn').textContent = lang === 'en' ? 'next →' : 'siguiente →';
-  document.getElementById('stat-streak').textContent = streak;
-}
+function goHome() { renderHome(); }
 
+// ─── END ─────────────────────────────────────────────────────────────────────
 function endCategory() {
   const total = currentPairs.length;
+  lastScore = { correct, total, cat: currentCat };
   const prev = progress[currentCat] || 0;
-  if (correct > prev) {
-    progress[currentCat] = correct;
-    saveProgress();
-  }
+  if (correct > prev) { progress[currentCat] = correct; saveProgress(); }
+
   document.getElementById('victory-score').textContent = `${correct}/${total}`;
   document.getElementById('victory-score-label').textContent = lang === 'en' ? 'correct answers' : 'respuestas correctas';
   document.getElementById('victory-home-btn').textContent = lang === 'en' ? 'back to catalog' : 'volver al catálogo';
   document.getElementById('victory-replay-btn').textContent = lang === 'en' ? 'replay' : 'repetir';
+  document.getElementById('victory-brag-btn').textContent = lang === 'en' ? 'brag →' : 'chicanear →';
 
   const pct = Math.round((correct / total) * 100);
+  const cat = CATEGORIES[currentCat];
+  const catName = lang === 'en' ? cat.nameEN : cat.nameES;
+
   let title, sub;
   if (pct === 100) {
     title = lang === 'en' ? 'PERFECT FLIP' : 'VUELTA PERFECTA';
@@ -983,22 +558,31 @@ function endCategory() {
     sub = lang === 'en' ? 'Solid record collection.' : 'Buena colección de discos.';
   } else {
     title = lang === 'en' ? 'KEEP DIGGING' : 'SIGUE BUSCANDO';
-    sub = lang === 'en' ? 'The other side is harder to find. Try again.' : 'El otro lado es más difícil. Inténtalo de nuevo.';
+    sub = lang === 'en' ? 'The other side is harder to find. Flip again.' : 'El otro lado es más difícil de encontrar. Inténtalo de nuevo.';
   }
   document.getElementById('victory-title').textContent = title;
   document.getElementById('victory-sub').textContent = sub;
   showScreen('victory');
 }
 
-function replayCategory() {
-  startCategory(currentCat);
+function replayCategory() { startCategory(currentCat); }
+
+function brag() {
+  const cat = CATEGORIES[currentCat];
+  const catName = lang === 'en' ? cat.nameEN : cat.nameES;
+  const pct = Math.round((lastScore.correct / lastScore.total) * 100);
+  const emoji = pct === 100 ? '💿' : pct >= 70 ? '🎵' : '🎶';
+  const text = lang === 'en'
+    ? `${emoji} B-Side / ${catName}: ${lastScore.correct}/${lastScore.total} — can you beat that?\nthemiloramirez.github.io/b-side`
+    : `${emoji} B-Side / ${catName}: ${lastScore.correct}/${lastScore.total} — ¿podés superarlo?\nthemiloramirez.github.io/b-side`;
+  navigator.clipboard.writeText(text).then(() => {
+    showToast(lang === 'en' ? 'Copied — go brag.' : 'Copiado — a chicanear.');
+  }).catch(() => {
+    showToast(lang === 'en' ? 'Copy manually: ' + text : 'Copiá manualmente: ' + text);
+  });
 }
 
-function goHome() {
-  showScreen('home');
-  renderHome();
-}
-
+// ─── UI HELPERS ──────────────────────────────────────────────────────────────
 function showScreen(name) {
   ['home','game','victory'].forEach(s => {
     document.getElementById('screen-' + s).classList.toggle('active', s === name);
@@ -1006,10 +590,8 @@ function showScreen(name) {
 }
 
 function updateLivesDisplay() {
-  const h = '♥';
-  const e = '♡';
   let s = '';
-  for (let i = 0; i < 3; i++) s += (i < lives ? h : e) + ' ';
+  for (let i = 0; i < 3; i++) s += (i < lives ? '♥' : '♡') + ' ';
   document.getElementById('lives-display').innerHTML = `<span>${s.trim()}</span>`;
   document.getElementById('stat-lives').textContent = lives;
 }
@@ -1018,13 +600,18 @@ function showToast(msg) {
   const t = document.getElementById('toast');
   t.textContent = msg;
   t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 2500);
+  setTimeout(() => t.classList.remove('show'), 2800);
 }
 
+// ─── KEYBOARD ────────────────────────────────────────────────────────────────
 document.getElementById('answer-input').addEventListener('keydown', e => {
-  if (e.key === 'Enter') submitAnswer();
+  if (e.key === 'Enter') {
+    if (!answered) submitAnswer();
+    else nextQuestion();
+  }
 });
 
+// ─── INIT ─────────────────────────────────────────────────────────────────────
 loadProgress();
 renderHome();
 </script>
